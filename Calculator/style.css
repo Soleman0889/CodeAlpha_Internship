@@ -1,0 +1,239 @@
+:root {
+    color-scheme: dark;
+    --page-top: #10182e;
+    --page-bottom: #070a14;
+    --panel: rgba(20, 29, 53, 0.85);
+    --panel-border: rgba(255, 255, 255, 0.1);
+    --screen: rgba(5, 10, 25, 0.78);
+    --text: #f6f8ff;
+    --muted: #91a0c3;
+    --key: #222f50;
+    --key-hover: #2c3d66;
+    --utility: #33405f;
+    --operator: #5367fa;
+    --operator-hover: #6a7bff;
+    --equals: #fcaa4b;
+    --equals-hover: #ffc06e;
+    --equals-text: #251504;
+}
+
+body.light {
+    color-scheme: light;
+    --page-top: #dce8ff;
+    --page-bottom: #f5f8ff;
+    --panel: rgba(255, 255, 255, 0.78);
+    --panel-border: rgba(53, 75, 130, 0.15);
+    --screen: rgba(238, 244, 255, 0.88);
+    --text: #16213f;
+    --muted: #637090;
+    --key: #e2eaf9;
+    --key-hover: #d1ddf4;
+    --utility: #ced9ee;
+    --operator: #5367fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 300px;
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at 15% 10%, rgba(92, 111, 252, 0.24), transparent 29rem), linear-gradient(145deg, var(--page-top), var(--page-bottom));
+}
+
+button {
+    font: inherit;
+}
+
+.page-shell {
+    width: min(100%, 28rem);
+    padding: 1.25rem;
+}
+
+.calculator {
+    padding: 1.35rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 1.7rem;
+    background: var(--panel);
+    box-shadow: 0 1.75rem 4rem rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(18px);
+}
+
+.calculator-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 1.2rem;
+}
+
+.eyebrow {
+    margin: 0 0 0.18rem;
+    color: var(--muted);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.3rem;
+    letter-spacing: -0.04em;
+}
+
+.theme-toggle {
+    width: 2.45rem;
+    height: 2.45rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text);
+    background: transparent;
+    transition: transform 160ms ease, background 160ms ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(127, 144, 190, 0.15);
+    transform: rotate(20deg);
+}
+
+.display {
+    min-height: 7.25rem;
+    padding: 1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+    border: 1px solid var(--panel-border);
+    border-radius: 1rem;
+    background: var(--screen);
+}
+
+.history {
+    width: 100%;
+    min-height: 1.25rem;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 0.83rem;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.screen {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: clamp(2.25rem, 10vw, 3.65rem);
+    font-weight: 600;
+    letter-spacing: -0.07em;
+    line-height: 1.13;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.65rem;
+    margin-top: 1rem;
+}
+
+.key {
+    min-height: 3.35rem;
+    border: 0;
+    border-radius: 0.85rem;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 1.18rem;
+    font-weight: 650;
+    background: var(--key);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.06), 0 0.25rem 0.4rem rgba(0, 0, 0, 0.12);
+    transition: transform 100ms ease, background 130ms ease, box-shadow 130ms ease;
+}
+
+.key:hover {
+    background: var(--key-hover);
+    transform: translateY(-2px);
+}
+
+.key:active,
+.key.pressed {
+    transform: translateY(1px) scale(0.97);
+    box-shadow: none;
+}
+
+.key:focus-visible,
+.theme-toggle:focus-visible {
+    outline: 3px solid #93a0ff;
+    outline-offset: 2px;
+}
+
+.utility {
+    background: var(--utility);
+    font-size: 0.95rem;
+}
+
+.operator {
+    background: var(--operator);
+}
+
+.operator:hover {
+    background: var(--operator-hover);
+}
+
+.equals {
+    grid-row: span 2;
+    background: var(--equals);
+    color: var(--equals-text);
+    font-size: 1.55rem;
+}
+
+.equals:hover {
+    background: var(--equals-hover);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.hint {
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+kbd {
+    padding: 0.08rem 0.3rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 0.25rem;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.69rem;
+}
+
+@media (max-width: 380px) {
+    .page-shell {
+        padding: 0.7rem;
+    }
+
+    .calculator {
+        padding: 1rem;
+        border-radius: 1.3rem;
+    }
+
+    .keypad {
+        gap: 0.48rem;
+    }
+
+    .key {
+        min-height: 3rem;
+    }
+}
