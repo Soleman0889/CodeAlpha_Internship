@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sonora — Music Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#"><span class="brand-mark">s</span> sonora</a>
+            <nav aria-label="Main navigation">
+                <p class="nav-label">Browse</p>
+                <a class="nav-item active" href="#home"><span>⌂</span> Home</a>
+                <a class="nav-item" href="#search"><span>⌕</span> Discover</a>
+                <a class="nav-item" href="#library"><span>♬</span> Your library</a>
+                <p class="nav-label library-label">Your music</p>
+                <a class="nav-item" href="#liked"><span>♥</span> Liked songs</a>
+                <a class="nav-item" href="#recent"><span>◴</span> Recently played</a>
+            </nav>
+            <div class="sidebar-bottom"><span class="avatar">A</span>
+                <div><strong>Alex Morgan</strong><small>Free listener</small></div><button
+                    aria-label="Settings">•••</button>
+            </div>
+        </aside>
+
+        <section class="content" id="home">
+            <header>
+                <div>
+                    <p class="eyebrow">GOOD EVENING, ALEX</p>
+                    <h1>Settle into the sound.</h1>
+                </div><button class="upgrade">✦ Upgrade</button>
+            </header>
+            <section class="hero-card">
+                <div class="hero-art" aria-hidden="true">
+                    <div class="sun"></div>
+                    <div class="wave wave-one"></div>
+                    <div class="wave wave-two"></div><span>after<br><i>hours</i></span>
+                </div>
+                <div class="hero-info">
+                    <p class="eyebrow">FEATURED PLAYLIST</p>
+                    <h2>Golden Hour</h2>
+                    <p>Warm tones for when the day begins to soften. Handpicked for your evening.</p>
+                    <div class="hero-meta"><span>Sonora</span><span>•</span><span>32 songs, 1 hr 48 min</span></div>
+                    <button class="play-featured" id="featuredPlay"><span>▶</span> Play playlist</button>
+                </div>
+            </section>
+            <section class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR EVENING MIX</p>
+                    <h2>Made for your moment</h2>
+                </div><button class="text-button">See all <span>→</span></button>
+            </section>
+            <section class="track-grid" id="trackGrid"></section>
+        </section>
+
+        <aside class="queue-panel">
+            <div class="queue-top">
+                <p class="eyebrow">NOW PLAYING</p><button id="closeQueue" aria-label="Close queue">×</button>
+            </div>
+            <div class="record-wrap">
+                <div class="record" id="record">
+                    <div class="record-label">SONORA<br><b>GOLDEN</b><br>HOUR</div>
+                </div>
+            </div>
+            <div class="now-title">
+                <div>
+                    <h3 id="nowTitle">Bloom</h3>
+                    <p id="nowArtist">The Paper Kites</p>
+                </div><button id="likeButton" class="like" aria-label="Like current song">♡</button>
+            </div>
+            <div class="progress-wrap"><input id="progress" class="range progress" type="range" min="0" max="100"
+                    value="0" aria-label="Song progress">
+                <div class="time"><span id="currentTime">0:00</span><span id="duration">3:42</span></div>
+            </div>
+            <div class="controls"><button id="shuffle" aria-label="Shuffle">⇄</button><button id="previous"
+                    aria-label="Previous track">↞</button><button id="playPause" class="play-button"
+                    aria-label="Play">▶</button><button id="next" aria-label="Next track">↠</button><button id="repeat"
+                    aria-label="Repeat">↻</button></div>
+            <div class="volume"><span>◖</span><input id="volume" class="range" type="range" min="0" max="1" step="0.01"
+                    value="0.7" aria-label="Volume"><span>◗</span></div>
+            <div class="up-next">
+                <div class="up-next-head">
+                    <p class="eyebrow">UP NEXT</p><button id="clearQueue">Clear</button>
+                </div>
+                <div id="queueList"></div>
+            </div>
+        </aside>
+    </main>
+    <audio id="audio" preload="metadata"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
