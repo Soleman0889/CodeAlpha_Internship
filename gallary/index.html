@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic page information. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Image Gallery</title>
+
+  <!-- This connects the CSS file. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <!-- Page title. -->
+  <header>
+    <h1>My Image Gallery</h1>
+    <p>Click an image to see it larger.</p>
+  </header>
+
+  <!-- Buttons used to filter gallery images by category. -->
+  <section class="filter-buttons">
+    <button class="filter-button active" data-category="all">All</button>
+    <button class="filter-button" data-category="nature">Nature</button>
+    <button class="filter-button" data-category="city">City</button>
+    <button class="filter-button" data-category="people">People</button>
+  </section>
+
+  <!-- Every gallery-item is one image card. -->
+  <main class="gallery">
+    <div class="gallery-item" data-category="nature"><img
+        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"
+        alt="River in a mountain valley">
+      <p>Mountain Valley</p>
+    </div>
+    <div class="gallery-item" data-category="people"><img
+        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80"
+        alt="Woman standing in sunlight">
+      <p>Sunny Portrait</p>
+    </div>
+    <div class="gallery-item" data-category="nature"><img
+        src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80"
+        alt="Misty green mountains">
+      <p>Misty Mountains</p>
+    </div>
+    <div class="gallery-item" data-category="city"><img
+        src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80"
+        alt="City buildings at sunset">
+      <p>City Lights</p>
+    </div>
+    <div class="gallery-item" data-category="people"><img
+        src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80"
+        alt="Woman against a pale wall">
+      <p>Quiet Moment</p>
+    </div>
+    <div class="gallery-item" data-category="nature"><img
+        src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80"
+        alt="Green leaves">
+      <p>Green Leaves</p>
+    </div>
+  </main>
+
+  <!-- Hidden lightbox: JavaScript shows it after an image is clicked. -->
+  <div id="lightbox" class="lightbox">
+    <button id="close-button" class="close-button" aria-label="Close">&times;</button>
+    <button id="previous-button" class="arrow-button previous-button" aria-label="Previous image">&#10094;</button>
+    <img id="lightbox-image" src="" alt="Large gallery image">
+    <button id="next-button" class="arrow-button next-button" aria-label="Next image">&#10095;</button>
+  </div>
+
+  <!-- This connects the JavaScript file. -->
+  <script src="script.js"></script>
+</body>
+
+</html>
